@@ -1,0 +1,72 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 29e7d11b8e49101d92e700807c2b58d30a132768241fdc6c84400b0128db148e
+
+name:           demo
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/demo#readme>
+homepage:       https://github.com/githubuser/demo#readme
+bug-reports:    https://github.com/githubuser/demo/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2020 Author name here
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/demo
+
+library
+  exposed-modules:
+      Dotp
+      Lib
+  other-modules:
+      Paths_demo
+  hs-source-dirs:
+      src
+  build-depends:
+      accelerate
+    , accelerate-llvm
+    , accelerate-llvm-native
+    , base >=4.7 && <5
+  default-language: Haskell2010
+
+executable demo-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_demo
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      accelerate
+    , accelerate-llvm
+    , accelerate-llvm-native
+    , base >=4.7 && <5
+    , demo
+  default-language: Haskell2010
+
+test-suite demo-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_demo
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      accelerate
+    , accelerate-llvm
+    , accelerate-llvm-native
+    , base >=4.7 && <5
+    , demo
+  default-language: Haskell2010
